@@ -59,6 +59,6 @@ end
 # Gemfile
 gem "devise"
 gem "faker"
-gem "bootstrap", "~> 5.1.3"
+gem "bootstrap", "~> 5.3.3"
 gem "kaminari"
 gem "jquery-rails"
