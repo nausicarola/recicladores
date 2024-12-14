@@ -51,3 +51,11 @@ Todos los campos son obligatorios en los formularios.
 Las vistas están en español, pero se recomienda utilizar convenciones de nombres en inglés para las tablas y modelos.
 Contribuciones
 Si deseas contribuir a este proyecto, por favor abre un issue o envía un pull request.
+
+
+
+# Render
+https://recicladores.onrender.com
+
+# GitHub
+https://github.com/nausicarola/recicladores
