@@ -45,9 +45,7 @@ class MaterialesController < ApplicationController
   private
 
   def set_reciclador
-    @reciclador = Reciclador.find(params[:reciclador_id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to recicladores_path, alert: "Reciclador no encontrado."
+    @reciclador = Reciclador.find(params[:recicladore_id])
   end
 
   def material_params

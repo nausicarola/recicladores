@@ -70,22 +70,22 @@
 # Crear algunas entregas asociadas a los recicladores y materiales
 
 Entrega.create!(
-  reciclador_id: 52,
-  material_id: 29,
+  reciclador_id: 2,
+  material_id: 4,
   fecha: Date.today - 1.day,
   cantidad: 30
 )
 
 Entrega.create!(
-  reciclador_id: 51,
-  material_id: 30,
+  reciclador_id: 2,
+  material_id: 5,
   fecha: Date.today - 2.days,
   cantidad: 20
 )
 
 Entrega.create!(
-  reciclador_id: 51,
-  material_id: 31,
+  reciclador_id: 2,
+  material_id: 6,
   fecha: Date.today - 3.days,
   cantidad: 40
 )

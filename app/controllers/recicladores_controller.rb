@@ -16,7 +16,7 @@ class RecicladoresController < ApplicationController
   end
 
   def new
-    @reciclador = Reciclador.new
+    @recicladore = Reciclador.new
   end
 
   def create
@@ -29,7 +29,7 @@ class RecicladoresController < ApplicationController
   end
 
   def edit
-    @reciclador = Reciclador.find(params[:id])
+    @recicladore = Reciclador.find(params[:id])
     puts "aqui #{@reciclador.nombre}"
   end
 

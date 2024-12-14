@@ -1,28 +1,42 @@
 class EntregasController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_reciclador_and_material
+  # before_action :set_reciclador_and_material, only: [ :edit, :update, :destroy ]
 
   def index
-    @entregas = @reciclador.entregas.paginate(page: params[:page], per_page: 10)
+    @reciclador = Reciclador.find(params[:recicladore_id])
+    @entregas = @reciclador.entregas.page(params[:page]).per(10)
   end
 
   def new
-    @entrega = @reciclador.entregas.build
+    @reciclador = Reciclador.find(params[:recicladore_id])
+    @entrega = @reciclador.entregas.new
+    @materiales = Material.all # Para llenar el combo box
   end
 
   def create
-    @entrega = @reciclador.entregas.build(entrega_params)
+    @reciclador = Reciclador.find(params[:recicladore_id])
+    @entrega = @reciclador.entregas.new(entrega_params)
     if @entrega.save
       redirect_to reciclador_entregas_path(@reciclador), notice: "Entrega registrada exitosamente."
     else
       render :new
     end
   end
+  def update
+    if @entrega.update(entrega_params)
+      redirect_to reciclador_entregas_path(@reciclador), notice: "Entrega actualizada exitosamente."
+    else
+      render :edit
+    end
+  end
 
   private
 
   def set_reciclador_and_material
-    @reciclador = Reciclador.find(params[:reciclador_id])
+    @reciclador = Reciclador.find(params[:recicladore_id])
+    @entrega = @reciclador.entregas.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to recicladores_path, alert: "Reciclador o entrega no encontrada."
   end
 
   def entrega_params

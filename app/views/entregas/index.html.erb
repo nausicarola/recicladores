@@ -6,7 +6,6 @@
       <th>Material</th>
       <th>Fecha</th>
       <th>Cantidad</th>
-      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -15,12 +14,11 @@
         <td><%= entrega.material.nombre if entrega.material.present? %></td> 
         <td><%= entrega.fecha.strftime("%d/%m/%Y") if entrega.fecha.present? %></td> 
         <td><%= entrega.cantidad %></td> 
-        <!-- Aquí puedes agregar más acciones si es necesario -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <%= paginate @entregas %> 
-<%= link_to 'Nueva Entrega', new_reciclador_entrega_path(@reciclador), class: 'btn btn-primary' %> 
+<%= link_to 'Nueva Entrega', new_recicladore_entrega_path(@reciclador), class: 'btn btn-primary' %> 
 
