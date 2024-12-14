@@ -1,0 +1,20 @@
+body {
+    background-color: forestgreen;
+  }
+
+  .pagination {
+    justify-content: center; /* Centra la paginación */
+  }
+  
+  .pagination .page-item {
+    margin: 0 10px; /* Espaciado entre los elementos */
+  }
+  
+  .pagination .page-link {
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .pagination .active .page-link {
+    background-color: black; /* Color de fondo para la página activa */
+    color: black; /* Color del texto para la página activa */
+  }

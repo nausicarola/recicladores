@@ -1,0 +1,44 @@
+
+<h1>Listado de Recicladores</h1>
+
+<%= form_with(url: recicladores_path, method: :get, local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :search, "Buscar Reciclador" %>
+    <%= form.text_field :search, value: params[:search], class: 'form-control' %>
+    <%= form.submit 'Buscar', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Teléfono</th>
+      <th>Dirección</th>
+      <th>Email</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recicladores.each do |reciclador| %>
+      <tr>
+        <td><%= reciclador.nombre %></td>
+        <td><%= reciclador.telefono %></td>
+        <td><%= reciclador.direccion %></td>
+        <td><%= reciclador.email %></td>
+        <td>
+          <%= link_to 'Entregas', recicladore_entregas_path(reciclador) %>/
+          <%= link_to 'Editar', edit_recicladore_path(reciclador) %>/
+          <%= link_to 'Materiales', recicladore_materiales_path(reciclador)%>/ 
+          <%= link_to 'Eliminar', recicladore_path(reciclador), method: :delete, data: { confirm: '¿Estás seguro?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+ <div class="mt-4">
+  <%= paginate @recicladores%>
+</div>
+<%= link_to 'Nuevo Reciclador', new_recicladore_path, class: 'btn btn-primary' %>
+

@@ -1,0 +1,22 @@
+<%= form_with(model: [@reciclador, @entrega]) do |form| %>
+
+<div class="form-group">
+   <%= form.label :material_id, "Seleccionar Material" %> 
+   <%= form.collection_select(:material_id, Material.all, :id, :nombre, { prompt: "Seleccione un material" }, { class: 'form-control' }) %> 
+</div>
+
+<div class="form-group">
+   <%= form.label :fecha %> 
+   <%= form.date_select :fecha, { start_year: Date.today.year - 5, end_year: Date.today.year + 5 }, class: 'form-control' %> 
+</div>
+
+<div class="form-group">
+   <%= form.label :cantidad %> 
+   <%= form.number_field :cantidad, class: 'form-control' %> 
+</div>
+
+<div class="actions"> 
+   <%= form.submit class: 'btn btn-primary' %> 
+</div>
+
+<% end %> 
